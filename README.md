@@ -10,12 +10,13 @@ t = pd.to_datetime(df['ts'], unit = 'ms')
 
 t.head()
 
-test_t = df['ts']
 
-time_data = [test_t,t.dt.hour,t.dt.day,t.dt.weekofyear,t.dt.month,t.dt.year,t.dt.weekday]
+time_data = [t,t.dt.hour,t.dt.day,t.dt.weekofyear,t.dt.month,t.dt.year,t.dt.weekday]
 
 column_labels = ['timestamp', 'hour', 'day', 'week_of_year', 'month', 'year', 'weekday']
 
+time_df = pd.DataFrame(dict(zip(column_labels,time_data )))
+time_df.head()
 
 for i, row in time_df.iterrows():
     print(time_table_insert)
